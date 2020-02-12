@@ -6,3 +6,6 @@ read.csv("./data/ex04_clean.csv", sep = ";", dec = ",")
 
 #Agora vamos criar um objeto com a tabela
 ex04 <- read.csv("./data/ex04_clean.csv", sep = ";", dec = ",")
+
+#Colocamos git add R(pasta onde ta o arquivo)/"Nome do arquivo de script" lá no terminal e assim o git começa a monitorar esse arquivo
+#Fizemos commit do arquivo de script e planilha limpa o git commit -m "entre parenteses colocamos uma mensagem"
