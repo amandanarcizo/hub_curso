@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+#aqui colocamos os comandos para os arquivos que queremos que ele ignore porque nunca vamos querer acompanhar arquivos de excel
+#ignorar arquivos excel
+*.xlsx
+
+#como ignorar pastas - colocar o nome da pasta
+docs
