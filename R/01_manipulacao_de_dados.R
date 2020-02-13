@@ -155,6 +155,10 @@ write.csv(x = comm.total,
 
 ####----------------------------------- FIM DESSA BAGACEIRA --------------
 ##-----------Noite 12/02 conectando os repositórios ------
-# curso com hub_curso
+# curso com hub_curso no terminal
+# git remote - v
+# git remote add origin "chave SSH"
+# git push -u origin master
+# quando aparece enter passphrase for key --> é pq eu criei uma senha pra key (Bento) e ele nao aparece quando a gente digita mesmo
 
 
