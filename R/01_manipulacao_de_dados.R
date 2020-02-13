@@ -154,5 +154,7 @@ write.csv(x = comm.total,
          row.names = FALSE)
 
 ####----------------------------------- FIM DESSA BAGACEIRA --------------
+##-----------Noite 12/02 conectando os repositórios ------
+# curso com hub_curso
 
 
