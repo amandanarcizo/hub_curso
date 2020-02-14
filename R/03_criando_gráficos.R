@@ -143,5 +143,72 @@ abline(a = coef_d[1],
 # para finalizar o gráfico e gerar o arquivo, precisamos rodar o dev.off()
 dev.off()
 
+#BOXPLOT
+##usando cores para criar um boxplot de cada cor --> box-plots da riqueza para cada especie e variavel com cada especie de uma cor
+
+##OBS: colocar o nome das especies em italico no eixo -> Isto e possivel com o argumento font da função axis. As funções text e mtext tambem tem a opção font
+
+#criando vetor de cores
+cores <- c("#3B9AB2", "#EBCC2A", "#F21A00")
+
+#criando vetor com o nome das especies
+?paste
+sp <- paste("I.", unique(iris$Species), sep = " ")
+
+#mfrow -> quantidade de quadrantes no plots/ mar -> n de linhas da margem/ bty=l -> tipo de margem do gráfico em L / las=1 -> vira a legenda do eixo y
+par(mfrow = c(2, 2),
+    mar = c(4, 1, 1, 1),
+    bty = 'l',
+    las = 1)
+
+#Fazer um boxplot de sepal.length (y) em funcao de species (x), data=iris -> da tabela iris, xlab -> deixando o eixo x sem label, col=cores -> o default é sem cor entao indica que a cor é da paleta de cores do objeto cores, xatx = remover os numeros do eixo x
+boxplot(Sepal.Length ~ Species,
+        data = iris,
+        xlab = "",
+        col = cores,
+        xaxt = "n")
+
+#alterando o label de um eixo, 1-> x, at= de quanto a quantos, labels = objeto sp que é o nome das espécies, font=3 -> tamanho da fonte
+axis(1, at = 1:3, labels = sp, font = 3)
+
+boxplot(Sepal.Width ~ Species,
+        data = iris,
+        xlab = "",
+        col = cores,
+        xaxt = "n")
+axis(1, at = 1:3, labels = sp, font = 3)
+boxplot(Petal.Length ~ Species, data = iris,  col = cores,
+        xaxt = "n")
+axis(1, at = 1:3, labels = sp, font = 3)
+boxplot(Petal.Width ~ Species,
+        data = iris,
+        col = cores,
+        xaxt = "n")
+axis(1, at = 1:3, labels = sp, font = 3)
+
+par(mfrow = c(1,1))
+
+#Grafico de media com desvio padrao com arrows
+#Vamos criar um data.frame com a média e desvio padrão de cinco variáveis. Atenção: estamos usando a função set.seed para que os valores gerados com a função sample sejam iguais para todxs os computadores.
+
+## fixando uma semente de numeros aleatorios para manter o mesmo resultado no sample
+set.seed(42)
+
+# criando um data frame/matriz/tabela com valores medios e desvio padrao de uma variavel, ele nomeia e coloca os numeros por coluna
+d2 <- data.frame(name = letters[1:5],
+                 value = sample(seq(4, 15), 5),
+                 sd = c(1, 0.2, 3, 2, 4))
+
+#Fazer o plot dos pontos/ Adicionar a configuracao do eixo x na mao com a funcao axis
+par(mfrow = c(1,1))
+plot(x = 1:5, d2$value, las = 1, bty = 'l', pch = 19, xaxt = 'n',
+     xlab = "names", ylab = "value")
+axis(1, at = 1:5, labels = d2$name)
+
+#Adicionar os valores de desvio padrão em torno da média com a função arrows
+#y0 = de onde partir o desenho, y1= até onde ele vai, angle=90 -> angulo da linha saindo do ponto, code=3 -> faz a barrinha no final da linha de dp
+arrows(x0 = 1:5,
+       y0 = d2$value + d2$sd,
+       y1 = d2$value - d2$sd, angle = 90, length = 0.05, code = 3)
 
 
